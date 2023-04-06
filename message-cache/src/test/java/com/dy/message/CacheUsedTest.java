@@ -1,6 +1,7 @@
 package com.dy.message;
 
 
+import com.msb.framework.redis.RedisClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,10 @@ public class CacheUsedTest {
 
     @Autowired
     private RedisTemplate redisTemplate;
+
+    @Autowired
+    private RedisClient redisClient;
+
      @Test
     public void testCacheHash(){
          Map<String, Object> map=new HashMap<>();
@@ -26,4 +31,11 @@ public class CacheUsedTest {
          map.put("birthday", LocalDate.now());
          redisTemplate.opsForHash().putAll("test:hash:1",map);
      }
+
+     @Test
+     public void testCacheString(){
+         redisClient.set("test:1","111111");
+     }
+
+
 }
