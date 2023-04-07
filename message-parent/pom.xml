@@ -28,6 +28,7 @@
     <modules>
         <module>../message-api</module>
         <module>../message-cache</module>
+        <module>../message-common</module>
     </modules>
 
     <dependencyManagement>
